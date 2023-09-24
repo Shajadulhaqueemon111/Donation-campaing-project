@@ -1,0 +1,47 @@
+/* Banner.css */
+.body {
+  height: 70vh;
+  background-image: url("https://i.ibb.co/zSqtWtH/Clothing.png");
+ 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.search-container {
+  display: flex; /* Display input and button side by side */
+  align-items: center; /* Center vertically within the container */
+  justify-content: center; /* Center horizontally within the container */
+}
+
+.text-input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Add a border for better appearance */
+  border-radius: 5px; /* Add rounded corners to the input */
+  margin-right: 10px; /* Add some spacing between input and button */
+}
+
+.search-button {
+  padding: 10px 20px; 
+  background-color: #FF444A;
+  color: #fff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #FF444A;
+}

@@ -4,7 +4,7 @@ import Logo from '../../Logo/Logo';
 const Navbar = () => {
     return (
         <div>
-            <nav className='flex justify-around py-7'>
+            <nav className='flex justify-evenly py-7'>
                 <Logo></Logo>
                 <ul className='flex gap-4'>
                    
@@ -12,7 +12,7 @@ const Navbar = () => {
                     <NavLink
   to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-400 underline" : ""
+    isPending ? "pending" : isActive ? "text-red-400 underline" : ""
   }
 >
   Home
@@ -22,7 +22,7 @@ const Navbar = () => {
                     <NavLink
   to="/donation"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-400 underline" : ""
+    isPending ? "pending" : isActive ? "text-red-400 underline" : ""
   }
 >
   Donation
@@ -32,7 +32,7 @@ const Navbar = () => {
                     <NavLink
   to="/statistics"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "text-green-400 underline" : ""
+    isPending ? "pending" : isActive ? "text-red-400 underline" : ""
   }
 >
 Statistics
