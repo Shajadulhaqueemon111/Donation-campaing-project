@@ -1,14 +1,39 @@
-import React from 'react';
-import DonationsCard from './DonationsCard';
+import React, { useEffect, useState } from 'react';
 
-const Donation = ({donations}) => {
+import PageCard from './PageCard';
+import Donation from './Donation'
+
+const Donations = () => {
+    const [donations, setDonations] = useState([]);
+    const [noFound, setNoFound] = useState(false);
+
+    useEffect(() => {
+        const categoryItem = JSON.parse(localStorage.getItem('donation')) ;
+        console.log('categoryItem:', categoryItem);
+    
+        if (categoryItem) {
+            setDonations(categoryItem);
+        } else {
+            setNoFound("not found");
+        }
+    }, []);
+    
+
     return (
-        <div className='grid grid-col-1 lg:grid-cols-4 gap-3 py-7'>
-            {
-                donations?.map(donation=><DonationsCard key={donation.id} donation={donation}></DonationsCard>)
-            }
+        <div>
+            
+             {noFound?<p>{noFound}</p> :<div>
+                
+                
+                </div>}
+                <div>
+                    {
+                        donations.map(donation=><PageCard key={donation.id} donation={donation}> </PageCard>)
+                    }
+                </div>
+              
         </div>
     );
 };
 
-export default Donation;
+export default Donations;
