@@ -5,27 +5,37 @@ const PageCard = ({ donation }) => {
   const { id, description, price, image } = donation || {};
 
   const handelAddToDonation = () => {
-    const addedDonationArray=[]
-    const categoryItem = JSON.parse(localStorage.getItem('donation')) || [];
-    console.log(donation);
+      const addedFavoritesArray = [];
+      const favoritesItems = JSON.parse(localStorage.getItem('donation')) || [];
 
-    if (!categoryItem) {
-      categoryItem.push(donation);
-      localStorage.setItem('donation', JSON.stringify(addedDonationArray));
+      if (!favoritesItems.length) {
+          addedFavoritesArray.push(donation);
+          localStorage.setItem('donation', JSON.stringify(addedFavoritesArray));
+          Swal.fire(
+              'Product added successfully!',
+              'You clicked the button!',
+              'success'
+          );
+      } else {
+          const isExist = favoritesItems.find(donation => donation.id === id);
 
-      Swal.fire({
-        icon: 'success',
-        title: 'Good job!',
-        text: 'You clicked the button!',
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Donation already added!',
-      });
-    }
-  };
+          if (!isExist) {
+              addedFavoritesArray.push(...favoritesItems, donation);
+              localStorage.setItem('donation', JSON.stringify(addedFavoritesArray));
+              Swal.fire(
+                  'Product added successfully!',
+                  'You clicked the button!',
+                  'success'
+              );
+          } else {
+              Swal.fire(
+                  'No duplicate!',
+                  'You clicked the button!',
+                  'error'
+              );
+          }
+      }
+  }
 
   return (
     <div className='flex justify-center items-center'>
@@ -37,17 +47,19 @@ const PageCard = ({ donation }) => {
             alt="Donation"
           />
         </div>
-        <div className="p-6 pt-0 train">
+        <div   style={{
+              position: 'relative',
+              width:'355px',
+              height:'80px',
+              top: '-80px',
+              left: '15px',
+              padding:'10px',
+              backgroundColor: 'rgba(11, 11, 11, 0.50)',
+            }}     className="p-6 pt-0 train bg-slate-400" >
           <button
             onClick={handelAddToDonation}
-            className="rounded-md p-2 text-white"
-            type="button"
-            style={{
-              position: 'relative',
-              top: '-90px',
-              left: '10px',
-              backgroundColor: 'rgba(255, 0, 0, 0.7)',
-            }}
+            className="rounded-md p-2 text-white bg-red-500"
+          
           >
             Donate ${price}
           </button>

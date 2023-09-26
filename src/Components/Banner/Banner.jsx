@@ -6,7 +6,7 @@ const Banner = () => {
         <div className='body'>
          
             <div className="content">
-            <p className='text-3xl font-bold mb-7'>I Grow By Helping People In Need</p>
+            <p className='text-3xl font-bold mb-7 '>I Grow By Helping People In Need</p>
                 <div className="search-container">
                 
                     <input type="text" placeholder="Enter your text" className="text-input" />

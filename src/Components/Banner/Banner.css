@@ -1,8 +1,9 @@
 /* Banner.css */
 .body {
   height: 70vh;
-  background-image: url("https://i.ibb.co/zSqtWtH/Clothing.png");
- 
+  background-image: url("https://i.ibb.co/nP5N247/Rectangle-4281.png");
+  
+  opacity:0.70;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -11,6 +12,7 @@
 }
 
 .content {
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -19,6 +21,7 @@
 }
 
 .search-container {
+  opacity:5;
   display: flex; /* Display input and button side by side */
   align-items: center; /* Center vertically within the container */
   justify-content: center; /* Center horizontally within the container */
