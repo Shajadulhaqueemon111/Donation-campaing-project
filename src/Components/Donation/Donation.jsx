@@ -30,23 +30,25 @@ const Donation = () => {
     return (
         <div>
             {noFound ? (
-                <p className='text-center mx-auto'>No donations found</p>
+                <p className='text-center mx-auto font-bold text-3xl'>No Donation</p>
             ) : (
                 <div>
                     {donations.length > 0 && (
-                        <button onClick={handleRemove} className='px-5 text-white bg-green-500 block mx-auto'>Delete Card</button>
+                        <button onClick={handleRemove} className='px-5 text-white bg-green-500 block mx-auto'></button>
                     )}
-                    <button onClick={() => setShow(!isShow)} className='text-white px-5 bg-green-500 mx-auto block my-4'>
-                        {isShow ? 'Show Less' : 'Show All'}
-                    </button>
+                   
                   
-                    <div className='grid grid-cols-1 md:grid-cols-3 items-center'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center'>
                         {isShow ? donations.map((donation) => (
                             <DonationPagers key={donation.id} donation={donation} />
                         )) : donations.slice(0, 4).map((donation) => (
                             <DonationPagers key={donation.id} donation={donation} />
                         ))}
+                       
                     </div>
+                    <button onClick={() => setShow(!isShow)} className='text-white px-5 items-center justify-center bg-green-500 block mx-auto my-4'>
+                        {isShow ? 'Show Less' : 'Show All'}
+                    </button>
                 </div>
             )}
         </div>
