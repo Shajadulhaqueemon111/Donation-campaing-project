@@ -42,7 +42,7 @@ const Donation = () => {
                         {isShow ? donations.map((donation) => (
                             <DonationPagers key={donation.id} donation={donation} />
                         )) : donations.slice(0, 4).map((donation) => (
-                            <DonationPagers key={donation.id} donation={donation} />
+                            <DonationPagers  key={donation.id} donation={donation} />
                         ))}
                        
                     </div>

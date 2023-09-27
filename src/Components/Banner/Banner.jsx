@@ -1,19 +1,19 @@
 import React from 'react';
 import './Banner.css';
+import DonationsCard from '../Donation/DonationsCard';
 
-const Banner = () => {
+const Banner = ({data,donations}) => {
+
+    const dataValue=data.toLowerCase()
+   const Filter=donations.filter((item)=> item.category.toLowerCase().includes(dataValue))
+   console.log(Filter)
     return (
-        <div className='body'>
-         
-            <div className="content">
-            <p className='text-3xl font-bold mb-7 '>I Grow By Helping People In Need</p>
-                <div className="search-container">
-                
-                    <input type="text" placeholder="Enter your text" className="text-input" />
-                    <button className="search-button">Search</button>
-                    
-                </div>
-            </div>
+        <div>
+       <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+            {
+               Filter?.map(donation=><DonationsCard donation={donation}></DonationsCard>)
+            }
+        </div>
         </div>
     );
 };
